@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center mt-5">
+
+  <form #form="ngForm" (ngSubmit)="onRegisterClick(form)" class="text-center">
+
+    <h3 class="mb-3">Register</h3>
+    <p class="text-danger">{{errorMessage}}</p>
+
+    <div class="form-floating mb-3">
+      <input name="email" ngModel type="email" class="form-control" id="username-input">
+      <label for="username-input">Email address</label>
+    </div>
+
+    <div class="d-flex justify-content-around mb-3">
+      <div class="form-floating flex-grow-1" style="margin-right: 1rem;">
+        <input name="firstName" ngModel type="text" class="form-control" id="first-name-input">
+        <label for="first-name-input">First Name</label>
+      </div>
+
+      <div class="form-floating flex-grow-1">
+        <input name="lastName" ngModel type="text" class="form-control" id="last-name-input">
+        <label for="last-name-input">Last Name</label>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-around mb-3">
+      <div class="form-floating flex-grow-1" style="margin-right: 1rem;">
+        <input name="password" ngModel type="password" class="form-control" id="password-input">
+        <label for="password-input">Password</label>
+      </div>
+
+      <div class="form-floating flex-grow-1">
+        <input name="confirmPassword" ngModel type="password" class="form-control" id="confirm-password-input">
+        <label for="password-input">Confirm Password</label>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <button type="button" (click)="onLoginClick()" class="btn btn-outline-primary">Have Account?</button>
+      <button type="submit" class="btn btn-outline-primary">Register</button>
+    </div>
+  </form>
+</div>

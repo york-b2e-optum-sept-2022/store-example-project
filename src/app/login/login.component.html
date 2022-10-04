@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center mt-5">
+
+  <form #form="ngForm" (ngSubmit)="onLogin(form)" class="text-center w-50">
+
+    <h3>Login</h3>
+    <p class="text-danger">{{errorMessage}}</p>
+
+    <div class="form-floating mb-3">
+      <input name="email" ngModel type="text" class="form-control" id="username-input">
+      <label for="username-input">Email address</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input name="password" ngModel type="password" class="form-control" id="password-input">
+      <label for="password-input">Password</label>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <button type="button" (click)="onRegisterClick()" class="btn btn-outline-primary">Need Account?</button>
+      <button type="submit" class="btn btn-outline-primary">Login</button>
+    </div>
+
+  </form>
+</div>
