@@ -1,6 +1,7 @@
 import {Component, OnDestroy} from '@angular/core';
 import {AccountService} from "./account.service";
 import {Observable, Subject, Subscription, takeUntil} from "rxjs";
+import {CartService} from "./cart.service";
 
 @Component({
   selector: 'app-root',
@@ -11,19 +12,33 @@ export class AppComponent implements OnDestroy {
 
   isLoggedIn: boolean = false;
   isRegistering: boolean = false;
+  isViewingCart: boolean = false;
 
-  subscriptions: Subscription;
+  onDestroy = new Subject();
 
-  constructor(private accountService: AccountService) {
-    this.subscriptions = this.accountService.$account.subscribe(account => {
-      this.isLoggedIn = account ? true : false;
-    });
-    this.subscriptions = this.accountService.$isRegistering.subscribe(isRegistering => {
-      this.isRegistering = isRegistering;
-    });
+  constructor(
+    private cartService: CartService,
+    private accountService: AccountService,
+  ) {
+    this.accountService.$account
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(account => {
+        this.isLoggedIn = account ? true : false;
+      });
+    this.accountService.$isRegistering
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(isRegistering => {
+        this.isRegistering = isRegistering;
+      });
+    this.cartService.$isViewingCart
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(isViewingCart => {
+        this.isViewingCart = isViewingCart
+      })
   }
 
   ngOnDestroy() {
-    this.subscriptions.unsubscribe();
+    this.onDestroy.next(null);
+    this.onDestroy.complete();
   }
 }

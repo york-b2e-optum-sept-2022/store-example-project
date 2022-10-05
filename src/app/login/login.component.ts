@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AccountService} from "../account.service";
 import {NgForm} from "@angular/forms";
 import {Subject, takeUntil} from "rxjs";
-import {ILoginForm} from "../interfaces/ILoginForm";
+import {ILoginForm} from "../_interfaces/ILoginForm";
 
 @Component({
   selector: 'app-login',

@@ -8,6 +8,26 @@
       "password": "password"
     }
   ],
+  "carts": [
+    {
+      "id": "f48430e8-d20e-4735-838e-19a1583221c7",
+      "productList": [
+        {
+          "count": 1,
+          "product": {
+            "imgUrl": "http://guesseu.scene7.com/is/image/GuessEU/WC0001FMSWC-G5?wid=520&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
+            "name": "GUESS CONNECT WATCH",
+            "price": 438.9,
+            "rating": 5
+          }
+        }
+      ],
+      "subTotal": 438.9,
+      "taxTotal": 30.72,
+      "shippingTotal": 0,
+      "costTotal": 469.62
+    }
+  ],
   "products": [
     {
       "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",

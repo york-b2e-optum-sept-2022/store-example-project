@@ -7,12 +7,22 @@ import {RegisterComponent} from './register/register.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductComponent } from './product/product.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { CartComponent } from './cart/cart.component';
+import { ProductRatingComponent } from './product-rating/product-rating.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductListComponent,
+    ProductComponent,
+    NavBarComponent,
+    CartComponent,
+    ProductRatingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,59 @@
+<div *ngIf="cart" class="d-flex flex-column">
+  <div
+    *ngIf="errorMessage"
+    class="w-100 d-flex justify-content-center"
+  >
+    <div class="m-3 p-3 text-center">
+      <h3>{{errorMessage}}</h3>
+    </div>
+  </div>
+
+  <div
+    *ngIf="cart.productList.length > 0"
+    class="d-flex flex-row flex-wrap"
+  >
+    <app-product
+      *ngFor="let item of cart.productList"
+      [product]="item.product"
+      [inCart]="true"
+      [cartCount]="item.count"
+      class="w-25 p-2"
+    ></app-product>
+  </div>
+
+  <div
+    *ngIf="cart.productList.length <= 0"
+    class="w-100 d-flex justify-content-center"
+  >
+    <div class="m-3 p-3 text-center">
+      <h3>Your Cart is Empty</h3>
+      <button (click)="onViewProductsClick()" class="btn btn-outline-primary">View More Products</button>
+    </div>
+  </div>
+
+  <div *ngIf="cart.productList.length > 0" class="flex-grow-1">
+    <div class="card shadow p-3 m-3">
+      <div class="h4">
+        Subtotal:
+        <span style="float: right;">{{cart.subTotal | currency}}</span>
+      </div>
+      <div class="h4">
+        Tax:
+        <span style="float: right;">{{cart.taxTotal | currency}}</span>
+      </div>
+      <div class="h4">
+        Shipping:
+        <span style="float: right;">{{cart.shippingTotal | currency}}</span>
+      </div>
+      <br>
+      <div class="h3">
+        Total:
+        <span style="float: right;">{{cart.costTotal | currency}}</span>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-outline-primary mt-3">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>

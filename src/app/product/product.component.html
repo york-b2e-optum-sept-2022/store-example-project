@@ -1,0 +1,39 @@
+<div class="card shadow">
+  <div class="card-body">
+    <img src="{{product.imgUrl}}" class="card-img-top" alt="...">
+
+    <h6 class="card-title d-flex justify-content-between">
+      <div>{{product.name | titlecase}}</div>
+      <div>{{product.price | currency}}</div>
+    </h6>
+
+    <div class="text-center m-3">
+      <app-product-rating [rating]="product.rating"></app-product-rating>
+    </div>
+  </div>
+
+  <div *ngIf="!inCart" class="card-footer text-muted text-center">
+    <button (click)="onAddToCartClick()" class="btn btn-outline-primary">
+      <i class="bi bi-plus-circle"></i>
+      <div>Add To Cart</div>
+    </button>
+  </div>
+
+  <div *ngIf="inCart" class="card-footer text-muted text-center">
+    <div class="d-flex flex-row justify-content-around m-3">
+      <button (click)="onDecreaseCartCount()" class="btn btn-outline-primary">
+        <i class="bi bi-dash-lg"></i>
+      </button>
+      <h3>{{cartCount}}</h3>
+      <button (click)="onIncreaseCartCount()" class="btn btn-outline-primary">
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+
+    <button (click)="onRemoveProduct()" class="btn btn-outline-danger m-1">
+      <i class="bi bi-trash"></i>
+      <div>Remove</div>
+    </button>
+  </div>
+
+</div>

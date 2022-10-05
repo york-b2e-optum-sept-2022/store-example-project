@@ -1,0 +1,8 @@
+<div class="d-flex flex-wrap">
+  <app-product
+    *ngFor="let product of productList"
+    [product]="product"
+    [inCart]="false"
+    class="w-25 p-2"
+  ></app-product>
+</div>

@@ -1,17 +1,25 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from "./http.service";
 import {BehaviorSubject, first} from "rxjs";
-import {IAccount} from "./interfaces/IAccount";
-import {IRegistrationForm} from "./interfaces/IRegistrationForm";
+import {IAccount} from "./_interfaces/IAccount";
+import {IRegistrationForm} from "./_interfaces/IRegistrationForm";
 import {v4 as uuid} from 'uuid';
-import {ILoginForm} from "./interfaces/ILoginForm";
+import {ILoginForm} from "./_interfaces/ILoginForm";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  $account = new BehaviorSubject<IAccount | null>(null);
+  $account = new BehaviorSubject<IAccount | null>(
+    {
+      "id": "f48430e8-d20e-4735-838e-19a1583221c7",
+      "email": "test@test.com",
+      "firstName": "Adam",
+      "lastName": "Street",
+      "password": "password"
+    }
+  );
   $isRegistering = new BehaviorSubject<boolean>(false);
   $registrationError = new BehaviorSubject<string | null>(null);
   $loginError = new BehaviorSubject<string | null>(null);
@@ -30,6 +38,10 @@ export class AccountService {
   private readonly REGISTER_HTTP_ERROR_MESSAGE = 'Unable to create your account, please try again later';
 
   constructor(private httpService: HttpService) {
+  }
+
+  logout() {
+    this.$account.next(null);
   }
 
   login(form: ILoginForm) {

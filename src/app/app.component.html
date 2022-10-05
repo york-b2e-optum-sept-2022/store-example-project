@@ -1,8 +1,11 @@
+<app-nav-bar></app-nav-bar>
+
 <ng-container *ngIf="!isLoggedIn">
   <app-login *ngIf="!isRegistering"></app-login>
   <app-register *ngIf="isRegistering"></app-register>
 </ng-container>
 
 <ng-container *ngIf="isLoggedIn">
-  TODO
+  <app-product-list *ngIf="!isViewingCart">></app-product-list>
+  <app-cart *ngIf="isViewingCart">></app-cart>
 </ng-container>

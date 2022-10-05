@@ -1,0 +1,40 @@
+<nav class="navbar shadow sticky-top bg-primary">
+  <div class="d-flex justify-content-between w-100">
+
+    <div class="d-flex align-items-center">
+      <img src="../../assets/mountain-icon.webp" class="m-3" style="height: 4rem;" alt="store-icon">
+      <div class="navbar-brand fs-3 text-light">Blue Mountain Apparel</div>
+    </div>
+
+    <div *ngIf="account && !isViewingCart" class="d-flex align-items-center">
+      <div class="form-floating">
+        <input
+          [ngModel]="searchText"
+          (ngModelChange)="onSearchTextChange($event)"
+          type="text" class="form-control" id="search-input"
+        >
+        <label for="search-input">Search</label>
+      </div>
+    </div>
+
+    <div *ngIf="account" class="d-flex flex-row align-items-center">
+      <div class="fs-4 text-light">Welcome, {{account.firstName}}</div>
+      <button
+        *ngIf="!isViewingCart"
+        (click)="onCartClick()"
+        [disabled]="!cartCount || cartCount < 1"
+        class="btn btn-outline-light m-3">
+        <i class="bi bi-cart"></i>
+        Cart ({{cartCount}})
+      </button>
+      <button
+        *ngIf="isViewingCart"
+        (click)="onCartClick()"
+        class="btn btn-outline-light m-3">
+        Products
+      </button>
+      <button (click)="onLogoutClick()" class="btn btn-outline-light m-3">Logout</button>
+    </div>
+
+  </div>
+</nav>

@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AccountService} from "../account.service";
 import {NgForm} from "@angular/forms";
 import {from, Subject, takeUntil} from "rxjs";
-import {IRegistrationForm} from "../interfaces/IRegistrationForm";
+import {IRegistrationForm} from "../_interfaces/IRegistrationForm";
 
 @Component({
   selector: 'app-register',
